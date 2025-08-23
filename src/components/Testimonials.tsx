@@ -3,21 +3,21 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Dr. Michael Weber",
-    role: "Geschäftsführer, TGA Weber & Partner",
-    content: "PlanTech Pro hat unsere Planungseffizienz um 65% gesteigert. Die automatisierten Berechnungen und Norm-Prüfungen sparen uns täglich mehrere Stunden.",
+    name: "Ing. Andreas Huber",
+    role: "Geschäftsführer, Huber Haustechnik GmbH, Wien",
+    content: "Permatec hat unsere Wirtschaftlichkeitsberechnungen revolutioniert. Die ÖNORM-Konformität gibt uns absolute Rechtssicherheit bei allen Projekten.",
     rating: 5
   },
   {
-    name: "Sarah Müller",
-    role: "Projektleiterin HLKS, Ingenieurbüro Müller",
-    content: "Die CAD-Integration ist hervorragend. Endlich können wir nahtlos zwischen verschiedenen Tools wechseln, ohne Daten zu verlieren.",
+    name: "DI Maria Schönberger",
+    role: "Projektleiterin, TGA-Planung Salzburg",
+    content: "Endlich eine österreichische Lösung, die alle unsere Normen berücksichtigt. Die Berechnungen sind präzise und die Reports professionell.",
     rating: 5
   },
   {
-    name: "Thomas Schmidt",
-    role: "Leiter Haustechnik, BauTech Solutions",
-    content: "Seit der Einführung von PlanTech Pro haben sich unsere Projektlaufzeiten halbiert. Die Kollaborations-Features sind genial.",
+    name: "Franz Gruber",
+    role: "Technischer Leiter, Alpen Energie Technik, Innsbruck",
+    content: "Die Variantenvergleiche sparen uns enorm viel Zeit. Unsere Kunden bekommen schneller die optimale Lösung für ihre Anlagen.",
     rating: 5
   }
 ];
@@ -31,7 +31,7 @@ export function Testimonials() {
             Was unsere Kunden sagen
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Über 500+ Ingenieurbüros vertrauen bereits auf PlanTech Pro
+            Über 200+ österreichische Unternehmen vertrauen bereits auf Permatec
           </p>
         </div>
 

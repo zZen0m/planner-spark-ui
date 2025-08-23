@@ -13,12 +13,12 @@ export function Hero() {
                 Neue Version verfügbar
               </div>
               <h1 className="font-heading font-bold text-5xl lg:text-6xl leading-tight text-foreground">
-                Haustechnik-Planung{" "}
-                <span className="text-primary">neu definiert</span>
+                Wirtschaftlichkeits-berechnung{" "}
+                <span className="text-primary">nach ÖNORM</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Revolutionieren Sie Ihre HLKS-Projekte mit unserer intuitiven 
-                SaaS-Plattform. Vom Entwurf bis zur Ausführung – alles in einem System.
+                Professionelle Wirtschaftlichkeitsberechnung für haustechnische Anlagen 
+                nach österreichischen Normen. Präzise, normkonform und effizient.
               </p>
             </div>
             

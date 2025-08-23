@@ -16,12 +16,12 @@ export function CTA() {
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <div className="space-y-6">
             <h2 className="font-heading font-bold text-4xl lg:text-5xl text-foreground">
-              Bereit für die Zukunft der{" "}
-              <span className="text-primary">Haustechnik-Planung?</span>
+              Bereit für professionelle{" "}
+              <span className="text-primary">Wirtschaftlichkeitsberechnung?</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Schließen Sie sich über 500+ Ingenieurbüros an, die bereits mit 
-              PlanTech Pro effizienter planen und mehr Projekte erfolgreich abschließen.
+              Schließen Sie sich über 200+ österreichischen Unternehmen an, die bereits mit 
+              Permatec präzise und normkonforme Berechnungen erstellen.
             </p>
           </div>
 

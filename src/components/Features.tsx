@@ -11,33 +11,33 @@ import {
 const features = [
   {
     icon: Zap,
-    title: "Automatisierte Berechnungen",
-    description: "Präzise Berechnungen für Heizlast, Kühllast und Rohrnetzoptimierung in Echtzeit."
+    title: "ÖNORM-konforme Berechnung",
+    description: "Automatisierte Wirtschaftlichkeitsberechnung nach aktuellen österreichischen Normen."
   },
   {
     icon: Settings,
-    title: "CAD-Integration",
-    description: "Nahtlose Integration mit gängigen CAD-Systemen für effiziente Arbeitsabläufe."
+    title: "Variantenvergleich",
+    description: "Vergleichen Sie verschiedene Anlagenvarianten und finden Sie die optimale Lösung."
   },
   {
     icon: BarChart3,
-    title: "Intelligente Analytics",
-    description: "Umfassende Projektanalysen und KPIs für optimierte Planungsentscheidungen."
+    title: "Detaillierte Auswertungen",
+    description: "Umfassende Reports mit Amortisationszeit, NPV und allen relevanten Kennzahlen."
   },
   {
     icon: Shield,
-    title: "Norm-Konformität",
-    description: "Automatische Prüfung gegen DIN-, VDI- und EnEV-Normen für rechtssichere Planung."
+    title: "Rechtssicherheit",
+    description: "Vollständige Konformität mit ÖNORM B 1801-1 und anderen relevanten Standards."
   },
   {
     icon: Users,
-    title: "Team-Kollaboration",
-    description: "Echtzeit-Zusammenarbeit mit Kollegen, Auftraggebern und Fachplanern."
+    title: "Projektmanagement",
+    description: "Verwalten Sie mehrere Projekte und arbeiten Sie mit Ihrem Team zusammen."
   },
   {
     icon: Clock,
-    title: "Zeitersparnis",
-    description: "Bis zu 60% weniger Planungszeit durch intelligente Automatisierung und Vorlagen."
+    title: "Effizienzsteigerung",
+    description: "Bis zu 70% weniger Zeitaufwand durch automatisierte Berechnungen und Vorlagen."
   }
 ];
 
@@ -47,12 +47,12 @@ export function Features() {
       <div className="container mx-auto px-6">
         <div className="text-center space-y-4 mb-16">
           <h2 className="font-heading font-bold text-4xl lg:text-5xl text-foreground">
-            Funktionen für moderne{" "}
-            <span className="text-primary">Haustechnik-Planung</span>
+            Präzise{" "}
+            <span className="text-primary">Wirtschaftlichkeitsberechnung</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Unsere SaaS-Plattform bietet alle Tools, die Sie für effiziente und 
-            präzise Planung von haustechnischen Anlagen benötigen.
+            Alle Funktionen für professionelle Wirtschaftlichkeitsberechnungen 
+            nach österreichischen Normen in einer Software vereint.
           </p>
         </div>
 

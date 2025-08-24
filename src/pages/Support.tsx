@@ -5,41 +5,73 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Mail, Phone, MapPin, Send, MessageCircle, FileText, Settings } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { ArrowLeft, Mail, Phone, MapPin, Send, MessageCircle, FileText, Settings, Shield, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
 const Support = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     company: "",
     subject: "",
     category: "",
-    message: ""
+    message: "",
+    age14Plus: false,
+    dataProcessing: false,
+    newsletter: false,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Here you would typically send the form data to your backend
-    console.log("Form submitted:", formData);
+    if (!formData.age14Plus) {
+      toast({
+        variant: "destructive",
+        title: "Altersbestätigung erforderlich",
+        description: "Sie müssen bestätigen, dass Sie mindestens 14 Jahre alt sind.",
+      });
+      return;
+    }
+
+    if (!formData.dataProcessing) {
+      toast({
+        variant: "destructive",
+        title: "Datenschutz-Einwilligung erforderlich",
+        description: "Sie müssen der Verarbeitung Ihrer Daten zustimmen.",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
     
-    toast({
-      title: "Nachricht gesendet",
-      description: "Vielen Dank für Ihre Anfrage. Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      subject: "",
-      category: "",
-      message: ""
-    });
+    // Simulate form submission
+    setTimeout(() => {
+      toast({
+        title: "Nachricht gesendet",
+        description: "Vielen Dank für Ihre Anfrage. Wir werden uns bald bei Ihnen melden.",
+      });
+      
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        company: "",
+        subject: "",
+        category: "",
+        message: "",
+        age14Plus: false,
+        dataProcessing: false,
+        newsletter: false,
+      });
+      
+      setIsSubmitting(false);
+    }, 1000);
   };
 
   const supportCategories = [
@@ -98,29 +130,58 @@ const Support = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
+                {/* DSGVO Information */}
+                <div className="bg-accent/50 p-4 rounded-lg mb-6 border border-accent">
+                  <div className="flex items-start gap-2">
+                    <Shield className="h-5 w-5 text-primary mt-0.5" />
+                    <div>
+                      <h3 className="font-medium text-foreground mb-2">Datenschutzhinweis</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Ihre Daten werden nur zur Bearbeitung Ihrer Anfrage verwendet und nach Abschluss der Bearbeitung gelöscht. 
+                        Weitere Informationen finden Sie in unserer{" "}
+                        <Link to="/datenschutz" className="text-primary hover:underline">
+                          Datenschutzerklärung
+                        </Link>
+                        .
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Name *</Label>
+                      <Label htmlFor="firstName">Vorname *</Label>
                       <Input
-                        id="name"
+                        id="firstName"
                         required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Ihr vollständiger Name"
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        placeholder="Ihr Vorname"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">E-Mail *</Label>
+                      <Label htmlFor="lastName">Nachname *</Label>
                       <Input
-                        id="email"
-                        type="email"
+                        id="lastName"
                         required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="ihre.email@beispiel.com"
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        placeholder="Ihr Nachname"
                       />
                     </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="email">E-Mail *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="ihre.email@beispiel.com"
+                    />
                   </div>
                   
                   <div className="space-y-2">
@@ -176,10 +237,60 @@ const Support = () => {
                       className="resize-none"
                     />
                   </div>
+
+                  {/* DSGVO Compliance Checkboxes */}
+                  <div className="space-y-4 p-4 bg-card rounded-lg border">
+                    <h3 className="font-medium text-foreground text-sm">Einverständniserklärungen *</h3>
+                    
+                    <div className="flex items-start space-x-3">
+                      <Checkbox
+                        id="age14Plus"
+                        checked={formData.age14Plus}
+                        onCheckedChange={(checked) => setFormData({ ...formData, age14Plus: checked as boolean })}
+                      />
+                      <label htmlFor="age14Plus" className="text-sm text-muted-foreground leading-relaxed">
+                        Ich bestätige, dass ich mindestens 14 Jahre alt bin. *
+                      </label>
+                    </div>
+
+                    <div className="flex items-start space-x-3">
+                      <Checkbox
+                        id="dataProcessing"
+                        checked={formData.dataProcessing}
+                        onCheckedChange={(checked) => setFormData({ ...formData, dataProcessing: checked as boolean })}
+                      />
+                      <label htmlFor="dataProcessing" className="text-sm text-muted-foreground leading-relaxed">
+                        Ich willige ein, dass meine Daten zur Bearbeitung meiner Anfrage verarbeitet werden. 
+                        Diese Einwilligung kann ich jederzeit per E-Mail an office@permatec.at widerrufen. *
+                      </label>
+                    </div>
+
+                    <div className="flex items-start space-x-3">
+                      <Checkbox
+                        id="newsletter"
+                        checked={formData.newsletter}
+                        onCheckedChange={(checked) => setFormData({ ...formData, newsletter: checked as boolean })}
+                      />
+                      <label htmlFor="newsletter" className="text-sm text-muted-foreground leading-relaxed">
+                        Ich möchte über neue Funktionen und Updates per E-Mail informiert werden. (optional)
+                      </label>
+                    </div>
+
+                    <div className="text-xs text-muted-foreground bg-accent/30 p-3 rounded">
+                      <AlertCircle className="h-4 w-4 inline mr-1" />
+                      Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). 
+                      Sie haben das Recht, Ihre Einwilligung jederzeit zu widerrufen.
+                    </div>
+                  </div>
                   
-                  <Button type="submit" className="w-full" size="lg">
+                  <Button 
+                    type="submit" 
+                    className="w-full" 
+                    size="lg"
+                    disabled={isSubmitting}
+                  >
                     <Send className="mr-2 h-4 w-4" />
-                    Nachricht senden
+                    {isSubmitting ? "Wird gesendet..." : "Nachricht senden"}
                   </Button>
                 </form>
               </CardContent>

@@ -32,7 +32,8 @@ const footerLinks = {
     { name: "Datenschutz", href: "/datenschutz" },
     { name: "AGB", href: "/agb" },
     { name: "Impressum", href: "/impressum" },
-    { name: "Cookies", href: "/cookies" }
+    { name: "Cookies", href: "/cookies" },
+    { name: "Cookie-Einstellungen", href: "/cookie-einstellungen" }
   ]
 };
 

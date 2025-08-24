@@ -12,7 +12,7 @@ import {
 const footerLinks = {
   product: [
     { name: "Features", href: "#" },
-    { name: "Preise", href: "#" },
+    { name: "Preise", href: "/preise" },
     { name: "Demo", href: "#" },
     { name: "Integrationen", href: "#" }
   ],
@@ -24,15 +24,15 @@ const footerLinks = {
   ],
   resources: [
     { name: "Dokumentation", href: "#" },
-    { name: "Support", href: "#" },
+    { name: "Support", href: "/support" },
     { name: "Webinare", href: "#" },
     { name: "Blog", href: "#" }
   ],
   legal: [
-    { name: "Datenschutz", href: "#" },
-    { name: "AGB", href: "#" },
-    { name: "Impressum", href: "#" },
-    { name: "Cookies", href: "#" }
+    { name: "Datenschutz", href: "/datenschutz" },
+    { name: "AGB", href: "/agb" },
+    { name: "Impressum", href: "/impressum" },
+    { name: "Cookies", href: "/cookies" }
   ]
 };
 

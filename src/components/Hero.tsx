@@ -4,7 +4,25 @@ import heroImage from "@/assets/hero-image.jpg";
 
 export function Hero() {
   return (
-    <section className="relative bg-gradient-hero min-h-screen flex items-center">
+    <>
+      {/* Header Banner */}
+      <div className="bg-foreground text-background py-3">
+        <div className="container mx-auto px-6 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <div className="font-heading font-bold text-lg">Permatec e.U.</div>
+          </div>
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" size="sm" className="text-background/70 hover:text-background hover:bg-background/10">
+              Anmelden
+            </Button>
+            <Button variant="outline" size="sm" className="border-background/20 text-background hover:bg-background hover:text-foreground">
+              Registrieren
+            </Button>
+          </div>
+        </div>
+      </div>
+      
+      <section className="relative bg-gradient-hero min-h-screen flex items-center">
       <div className="container mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
@@ -71,5 +89,6 @@ export function Hero() {
         </div>
       </div>
     </section>
+    </>
   );
 }

@@ -144,7 +144,7 @@ export function Footer() {
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-background/70 text-sm">
-            © 2024 Permatec e.U. Alle Rechte vorbehalten.
+            © 2025 Permatec e.U. Alle Rechte vorbehalten.
           </p>
           
           <div className="flex gap-6">

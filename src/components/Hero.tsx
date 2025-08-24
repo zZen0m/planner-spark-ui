@@ -15,7 +15,7 @@ export function Hero() {
             <Button variant="ghost" size="sm" className="text-background/70 hover:text-background hover:bg-background/10">
               Anmelden
             </Button>
-            <Button variant="outline" size="sm" className="border-background/20 text-background hover:bg-background hover:text-foreground">
+            <Button variant="ghost" size="sm" className="text-background/70 hover:text-background hover:bg-background/10">
               Registrieren
             </Button>
           </div>

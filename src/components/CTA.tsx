@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { ArrowRight, CheckCircle, Info } from "lucide-react";
 
 const benefits = [
   "14 Tage kostenlos testen",
@@ -44,19 +50,47 @@ export function CTA() {
               
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <Input 
-                    type="email" 
-                    placeholder="Ihre E-Mail-Adresse"
-                    className="text-lg py-6 border-2"
-                  />
-                  <Input 
-                    type="text" 
-                    placeholder="Firmenname"
-                    className="text-lg py-6 border-2"
-                  />
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Label htmlFor="cta-email">E-Mail</Label>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Info className="h-4 w-4 text-muted-foreground" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Wir benötigen Ihre E-Mail für den Testzugang.</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </div>
+                    <Input
+                      id="cta-email"
+                      type="email"
+                      placeholder="Ihre E-Mail-Adresse"
+                      className="border-2"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Label htmlFor="cta-company">Firmenname</Label>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Info className="h-4 w-4 text-muted-foreground" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Name Ihres Unternehmens.</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </div>
+                    <Input
+                      id="cta-company"
+                      type="text"
+                      placeholder="Firmenname"
+                      className="border-2"
+                    />
+                  </div>
                 </div>
-                
-                <Button size="lg" className="w-full text-lg py-6 shadow-medium">
+
+                <Button className="w-full shadow-medium">
                   Jetzt kostenlos testen
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

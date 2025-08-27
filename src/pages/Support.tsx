@@ -158,6 +158,7 @@ const Support = () => {
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                         placeholder="Ihr Vorname"
+                        size="sm"
                       />
                     </div>
                     <div className="space-y-2">
@@ -168,10 +169,11 @@ const Support = () => {
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                         placeholder="Ihr Nachname"
+                        size="sm"
                       />
                     </div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="email">E-Mail *</Label>
                     <Input
@@ -181,9 +183,10 @@ const Support = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="ihre.email@beispiel.com"
+                      size="sm"
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <Label htmlFor="company">Unternehmen</Label>
                     <Input
@@ -191,6 +194,7 @@ const Support = () => {
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Ihr Unternehmen (optional)"
+                      size="sm"
                     />
                   </div>
                   
@@ -222,6 +226,7 @@ const Support = () => {
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="Kurze Beschreibung Ihres Anliegens"
+                      size="sm"
                     />
                   </div>
                   

@@ -44,15 +44,15 @@ export function CTA() {
               
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <Input 
-                    type="email" 
+                  <Input
+                    type="email"
                     placeholder="Ihre E-Mail-Adresse"
-                    className="text-lg py-6 border-2"
+                    size="sm"
                   />
-                  <Input 
-                    type="text" 
+                  <Input
+                    type="text"
                     placeholder="Firmenname"
-                    className="text-lg py-6 border-2"
+                    size="sm"
                   />
                 </div>
                 

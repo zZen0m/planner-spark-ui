@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { ArrowLeft, Mail, Phone, MapPin, Send, MessageCircle, FileText, Settings, Shield, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
@@ -148,32 +149,50 @@ const Support = () => {
                   </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
+                <TooltipProvider>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-3">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName">Vorname *</Label>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Label htmlFor="firstName">Vorname *</Label>
+                        </TooltipTrigger>
+                        <TooltipContent>Bitte geben Sie Ihren Vornamen an.</TooltipContent>
+                      </Tooltip>
                       <Input
                         id="firstName"
                         required
                         value={formData.firstName}
                         onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                         placeholder="Ihr Vorname"
+                        className="h-8"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Nachname *</Label>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <Label htmlFor="lastName">Nachname *</Label>
+                        </TooltipTrigger>
+                        <TooltipContent>Bitte geben Sie Ihren Nachnamen an.</TooltipContent>
+                      </Tooltip>
                       <Input
                         id="lastName"
                         required
                         value={formData.lastName}
                         onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
                         placeholder="Ihr Nachname"
+                        className="h-8"
                       />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email">E-Mail *</Label>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Label htmlFor="email">E-Mail *</Label>
+                      </TooltipTrigger>
+                      <TooltipContent>Bitte geben Sie Ihre E-Mail-Adresse an.</TooltipContent>
+                    </Tooltip>
                     <Input
                       id="email"
                       type="email"
@@ -181,27 +200,39 @@ const Support = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="ihre.email@beispiel.com"
+                      className="h-8"
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="company">Unternehmen</Label>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Label htmlFor="company">Unternehmen</Label>
+                      </TooltipTrigger>
+                      <TooltipContent>Optional: Nennen Sie Ihr Unternehmen.</TooltipContent>
+                    </Tooltip>
                     <Input
                       id="company"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       placeholder="Ihr Unternehmen (optional)"
+                      className="h-8"
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="category">Kategorie *</Label>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Label htmlFor="category">Kategorie *</Label>
+                      </TooltipTrigger>
+                      <TooltipContent>Wählen Sie eine passende Kategorie für Ihr Anliegen.</TooltipContent>
+                    </Tooltip>
                     <Select
                       required
                       value={formData.category}
                       onValueChange={(value) => setFormData({ ...formData, category: value })}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger className="h-8">
                         <SelectValue placeholder="Wählen Sie eine Kategorie" />
                       </SelectTrigger>
                       <SelectContent>
@@ -215,18 +246,29 @@ const Support = () => {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Betreff *</Label>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Label htmlFor="subject">Betreff *</Label>
+                      </TooltipTrigger>
+                      <TooltipContent>Geben Sie einen kurzen Betreff an.</TooltipContent>
+                    </Tooltip>
                     <Input
                       id="subject"
                       required
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="Kurze Beschreibung Ihres Anliegens"
+                      className="h-8"
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="message">Nachricht *</Label>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Label htmlFor="message">Nachricht *</Label>
+                      </TooltipTrigger>
+                      <TooltipContent>Beschreiben Sie Ihr Anliegen.</TooltipContent>
+                    </Tooltip>
                     <Textarea
                       id="message"
                       required
@@ -283,9 +325,9 @@ const Support = () => {
                     </div>
                   </div>
                   
-                  <Button 
-                    type="submit" 
-                    className="w-full" 
+                  <Button
+                    type="submit"
+                    className="w-full"
                     size="lg"
                     disabled={isSubmitting}
                   >
@@ -293,6 +335,7 @@ const Support = () => {
                     {isSubmitting ? "Wird gesendet..." : "Nachricht senden"}
                   </Button>
                 </form>
+                </TooltipProvider>
               </CardContent>
             </Card>
 
@@ -305,8 +348,8 @@ const Support = () => {
                     Sie können uns auch direkt kontaktieren
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-start gap-4">
+                <CardContent className="space-y-4">
+                  <div className="flex items-start gap-3">
                     <div className="p-2 bg-primary/10 rounded-full">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
@@ -319,7 +362,7 @@ const Support = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3">
                     <div className="p-2 bg-primary/10 rounded-full">
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
@@ -332,7 +375,7 @@ const Support = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3">
                     <div className="p-2 bg-primary/10 rounded-full">
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
